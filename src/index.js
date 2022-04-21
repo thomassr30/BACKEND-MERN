@@ -1,6 +1,9 @@
-import express from 'express'
+import { connectDB } from './db.js'
+import app from './app.js'
 
-const app = express()
+
+connectDB()
+
 
 app.listen(4000)
 console.log('Servidor corriendo en puerto 4000')
