@@ -5,7 +5,7 @@ export const getPosts = async (req, res) => {
         const posts = await Post.find()
         res.send(posts)
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({msg: error.message})
     }
 }
 
@@ -18,7 +18,7 @@ export const getPost = async (req, res) => {
         }
         return res.json(post)
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({msg: error.message})
     }
 }
 
@@ -29,7 +29,7 @@ export const createPost = async (req, res) => {
         await newPost.save()
         return res.json(newPost)
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({msg: error.message})
     }
 }
 
@@ -40,7 +40,7 @@ export const updatePost = async (req, res) => {
         const postUpdate = await Post.findByIdAndUpdate(id, req.body, {new: true})
         return res.json(postUpdate)
     } catch (error) {
-        
+        return res.status(500).json({msg: error.message})
     }
 }
 
@@ -53,7 +53,7 @@ export const deletePost = async (req, res) => {
         }
         return res.sendStatus(204)
     } catch (error) {
-        console.log(error)
+        return res.status(500).json({msg: error.message})
     }
 }
 
