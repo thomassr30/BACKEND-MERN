@@ -13,3 +13,7 @@ export const uploadImage = async (filePath) => {
         folder: 'posts'
     })
 }
+
+export const deleteImage = async (id) => {
+    return await v2.uploader.destroy(id)
+}
